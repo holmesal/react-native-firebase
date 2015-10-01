@@ -86,15 +86,10 @@
 		E21345641BBD0B1B005436EB = {
 			isa = PBXGroup;
 			children = (
-				E26E298C1BBD152E00BF9CD9 /* SystemConfiguration.framework */,
-				E26E298A1BBD152500BF9CD9 /* Security.framework */,
-				E26E29881BBD151D00BF9CD9 /* CFNetwork.framework */,
-				E26E29861BBD150D00BF9CD9 /* libc++.dylib */,
-				E26E29841BBD150300BF9CD9 /* libicucore.dylib */,
+				E26E29981BBD15CA00BF9CD9 /* Deps */,
 				E213456F1BBD0B1B005436EB /* RNFirebase */,
 				E213457C1BBD0B1B005436EB /* RNFirebaseTests */,
 				E213456E1BBD0B1B005436EB /* Products */,
-				E26E29821BBD146700BF9CD9 /* Firebase.framework */,
 			);
 			sourceTree = "<group>";
 		};
@@ -132,6 +127,19 @@
 				E213457E1BBD0B1B005436EB /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		E26E29981BBD15CA00BF9CD9 /* Deps */ = {
+			isa = PBXGroup;
+			children = (
+				E26E298C1BBD152E00BF9CD9 /* SystemConfiguration.framework */,
+				E26E298A1BBD152500BF9CD9 /* Security.framework */,
+				E26E29881BBD151D00BF9CD9 /* CFNetwork.framework */,
+				E26E29861BBD150D00BF9CD9 /* libc++.dylib */,
+				E26E29841BBD150300BF9CD9 /* libicucore.dylib */,
+				E26E29821BBD146700BF9CD9 /* Firebase.framework */,
+			);
+			name = Deps;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

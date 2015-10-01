@@ -1,5 +1,7 @@
 # RNFirebase
 
+# HEAVILY A WIP, NOT READY FOR USE
+
 ## Why?
 
 Because the native iOS Firebase SDK rocks - it's got great [offline capabilities & caching](https://www.firebase.com/docs/ios/guide/offline-capabilities.html), and [SimpleLogin](https://www.firebase.com/docs/ios/guide/user-auth.html) works much better on native devices than in the JS SDK.

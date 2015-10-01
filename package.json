@@ -2,7 +2,7 @@
   "name": "react-native-firebase",
   "version": "0.0.1",
   "description": "A react-native module that wraps the native firebase iOS SDK",
-  "main": "firebase.js",
+  "main": "RNFirebase.js",
   "scripts": {
     "test": "npm test"
   },
@@ -16,5 +16,8 @@
   "license": "MIT",
   "dependencies": {
     "firebase": "^2.3.1"
+  },
+  "devDependencies": {
+    "react-native": "^0.11.4"
   }
 }

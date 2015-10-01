@@ -10,6 +10,13 @@
 		E21345711BBD0B1B005436EB /* RNFirebase.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = E21345701BBD0B1B005436EB /* RNFirebase.h */; };
 		E21345731BBD0B1B005436EB /* RNFirebase.m in Sources */ = {isa = PBXBuildFile; fileRef = E21345721BBD0B1B005436EB /* RNFirebase.m */; };
 		E21345791BBD0B1B005436EB /* libRNFirebase.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E213456D1BBD0B1B005436EB /* libRNFirebase.a */; };
+		E21345891BBD0E13005436EB /* RNFirebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21345881BBD0E13005436EB /* RNFirebase.swift */; };
+		E26E29831BBD146700BF9CD9 /* Firebase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E26E29821BBD146700BF9CD9 /* Firebase.framework */; };
+		E26E29851BBD150300BF9CD9 /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E26E29841BBD150300BF9CD9 /* libicucore.dylib */; };
+		E26E29871BBD150D00BF9CD9 /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E26E29861BBD150D00BF9CD9 /* libc++.dylib */; };
+		E26E29891BBD151D00BF9CD9 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E26E29881BBD151D00BF9CD9 /* CFNetwork.framework */; };
+		E26E298B1BBD152500BF9CD9 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E26E298A1BBD152500BF9CD9 /* Security.framework */; };
+		E26E298D1BBD152E00BF9CD9 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E26E298C1BBD152E00BF9CD9 /* SystemConfiguration.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,6 +48,14 @@
 		E21345721BBD0B1B005436EB /* RNFirebase.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RNFirebase.m; sourceTree = "<group>"; };
 		E21345781BBD0B1B005436EB /* RNFirebaseTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RNFirebaseTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E213457E1BBD0B1B005436EB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E21345871BBD0E13005436EB /* RNFirebase-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RNFirebase-Bridging-Header.h"; sourceTree = "<group>"; };
+		E21345881BBD0E13005436EB /* RNFirebase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RNFirebase.swift; sourceTree = "<group>"; };
+		E26E29821BBD146700BF9CD9 /* Firebase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Firebase.framework; sourceTree = "<group>"; };
+		E26E29841BBD150300BF9CD9 /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
+		E26E29861BBD150D00BF9CD9 /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
+		E26E29881BBD151D00BF9CD9 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		E26E298A1BBD152500BF9CD9 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		E26E298C1BBD152E00BF9CD9 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,6 +63,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E26E298D1BBD152E00BF9CD9 /* SystemConfiguration.framework in Frameworks */,
+				E26E298B1BBD152500BF9CD9 /* Security.framework in Frameworks */,
+				E26E29891BBD151D00BF9CD9 /* CFNetwork.framework in Frameworks */,
+				E26E29871BBD150D00BF9CD9 /* libc++.dylib in Frameworks */,
+				E26E29851BBD150300BF9CD9 /* libicucore.dylib in Frameworks */,
+				E26E29831BBD146700BF9CD9 /* Firebase.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,9 +86,15 @@
 		E21345641BBD0B1B005436EB = {
 			isa = PBXGroup;
 			children = (
+				E26E298C1BBD152E00BF9CD9 /* SystemConfiguration.framework */,
+				E26E298A1BBD152500BF9CD9 /* Security.framework */,
+				E26E29881BBD151D00BF9CD9 /* CFNetwork.framework */,
+				E26E29861BBD150D00BF9CD9 /* libc++.dylib */,
+				E26E29841BBD150300BF9CD9 /* libicucore.dylib */,
 				E213456F1BBD0B1B005436EB /* RNFirebase */,
 				E213457C1BBD0B1B005436EB /* RNFirebaseTests */,
 				E213456E1BBD0B1B005436EB /* Products */,
+				E26E29821BBD146700BF9CD9 /* Firebase.framework */,
 			);
 			sourceTree = "<group>";
 		};
@@ -85,6 +112,8 @@
 			children = (
 				E21345701BBD0B1B005436EB /* RNFirebase.h */,
 				E21345721BBD0B1B005436EB /* RNFirebase.m */,
+				E21345881BBD0E13005436EB /* RNFirebase.swift */,
+				E21345871BBD0E13005436EB /* RNFirebase-Bridging-Header.h */,
 			);
 			path = RNFirebase;
 			sourceTree = "<group>";
@@ -193,6 +222,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E21345891BBD0E13005436EB /* RNFirebase.swift in Sources */,
 				E21345731BBD0B1B005436EB /* RNFirebase.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -296,18 +326,33 @@
 		E21345821BBD0B1B005436EB /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "RNFirebase/RNFirebase-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		E21345831BBD0B1B005436EB /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "RNFirebase/RNFirebase-Bridging-Header.h";
 			};
 			name = Release;
 		};
@@ -362,6 +407,7 @@
 				E21345831BBD0B1B005436EB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E21345841BBD0B1B005436EB /* Build configuration list for PBXNativeTarget "RNFirebaseTests" */ = {
 			isa = XCConfigurationList;
@@ -370,6 +416,7 @@
 				E21345861BBD0B1B005436EB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

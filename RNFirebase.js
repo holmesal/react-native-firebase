@@ -14,4 +14,4 @@ class FirebaseBridge extends Firebase {
 	}
 }
 
-export default FirebaseBridge;
+module.exports = FirebaseBridge;

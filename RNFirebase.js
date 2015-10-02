@@ -17,9 +17,9 @@ class FirebaseBridge extends Firebase {
 	}
 
 	child(path) {
-		console.info('child path: ', path);
+		// console.info('child path: ', path);
 		let newRef = this._ref.child(path);
-		console.info('new ref: ', newRef.toString());
+		// console.info('new ref: ', newRef.toString());
 		return new FirebaseBridge(newRef.toString());
 	}
 
@@ -48,7 +48,7 @@ class FirebaseBridge extends Firebase {
 	* Firebase API methods
 	*/
 	on(eventType, callback) {
-		console.info(this.toString(), eventType);
+		// console.info(this.toString(), eventType);
 		// Listen to this location
 		RNFirebase.on(this.toString(), eventType);
 		// Listen for events emitted on this ref
@@ -62,7 +62,6 @@ class FirebaseBridge extends Firebase {
 			} else {
 				var ref = this;
 			}
-			console.info('got this far')
 			this.handleEvent(ev, ref, callback);
 		});
 	}
@@ -76,7 +75,6 @@ class FirebaseBridge extends Firebase {
 	}
 
 	set(value, onComplete) {
-		console.info('setting');
 		RNFirebase.set(this.toString(), value, onComplete);
 	}
 
@@ -84,8 +82,8 @@ class FirebaseBridge extends Firebase {
 		return this;
 	}
 
-	authWithFacebook() {
-
+	authWithFacebook(callback) {
+		RNFirebase.authWithFacebook(this.toString(), callback);
 	}
 
 	// Auth methods need a plan, and an implementation

@@ -8,6 +8,7 @@
 
 import Foundation
 import Firebase
+import FBSDKLoginKit
 
 /**
 
@@ -101,6 +102,42 @@ class RNFirebase: NSObject {
     ref.setValue(value, withCompletionBlock: { (err, ref) -> Void in
       println("done")
       callback(err)
+    })
+  }
+  
+  @objc func authWithFacebook(path: String, callback: RCTResponseSenderBlock) -> Void {
+    let ref = self.getRef(path);
+    let facebookLogin = FBSDKLoginManager();
+    
+    facebookLogin.logInWithReadPermissions(["email"], fromViewController:nil, handler: { (facebookResult, facebookError) -> Void in
+      if facebookError != nil {
+        println("Facebook login failed. Error \(facebookError)");
+        let error:NSDictionary = RCTMakeAndLogError("facebook login failed", facebookError, nil);
+        callback([error, NSNull()]);
+      } else if facebookResult.isCancelled {
+        println("Facebook login was cancelled.");
+        let error:NSDictionary = RCTMakeAndLogError("facebook login was cancelled", nil, nil);
+        callback([error, NSNull()]);
+      } else {
+        println("login succeeded!");
+        let accessToken = FBSDKAccessToken.currentAccessToken().tokenString;
+        ref.authWithOAuthProvider("facebook", token: accessToken, withCompletionBlock: { (err, authData) -> Void in
+          println("auth done");
+          if err != nil {
+            let error:NSDictionary = RCTMakeAndLogError("firebase auth error", err, nil);
+            callback([error, NSNull()]);
+          } else {
+            let authDict:NSDictionary = [
+              "auth": authData.auth,
+              "provider": authData.provider,
+              "providerData": authData.providerData,
+              "token": authData.token,
+              "uid": authData.uid
+            ];
+            callback([NSNull(), authDict]);
+          }
+        })
+      }
     })
   }
   

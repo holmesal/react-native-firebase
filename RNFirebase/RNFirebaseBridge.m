@@ -14,5 +14,6 @@
 RCT_EXTERN_METHOD(on:(NSString *)path event:(NSString *)event);
 RCT_EXTERN_METHOD(off:(NSString *)path);
 RCT_EXTERN_METHOD(set:(NSString *)path value:(id)value callback:(RCTResponseErrorBlock)callback);
+RCT_EXTERN_METHOD(authWithFacebook:(NSString *)path callback:(RCTResponseSenderBlock)callback);
 
 @end

@@ -8,11 +8,19 @@ var {NativeAppEventEmitter} = React;
 class FirebaseBridge extends Firebase {
 
 	constructor(path) {
-		console.info('new instance created')
+		console.info('new instance created: ', path)
 		// Create a firebase reference, to be returned
 		super(path);
+		this._ref = new Firebase(path);
 
 		return this;
+	}
+
+	child(path) {
+		console.info('child path: ', path);
+		let newRef = this._ref.child(path);
+		console.info('new ref: ', newRef.toString());
+		return new FirebaseBridge(newRef.toString());
 	}
 
 	/**
@@ -25,9 +33,9 @@ class FirebaseBridge extends Firebase {
 	}
 
 	// Given some data passed over the bridge, create a data snapshot and call the registered callback
-	handleEvent(data, callback) {
-		// console.info('got event', data);
-		let snap = new FirebaseDataSnapshot(data);
+	handleEvent(ev, ref, callback) {
+		console.info('got event', ev);
+		let snap = new FirebaseDataSnapshot(ev.data, ref);
 		callback(snap);
 	}
 
@@ -40,12 +48,19 @@ class FirebaseBridge extends Firebase {
 	* Firebase API methods
 	*/
 	on(eventType, callback) {
-		console.info(this.toString());
+		console.info(this.toString(), eventType);
 		// Listen to this location
 		RNFirebase.on(this.toString(), eventType);
 		// Listen for events emitted on this ref
-		NativeAppEventEmitter.addListener(this.getEventKey(eventType), (data) => {
-			this.handleEvent(data, callback);
+		NativeAppEventEmitter.addListener(this.getEventKey(eventType), (ev) => {
+			// If this data has a different key, then we're dealing with a child
+			if (ev.key !== this.key) {
+				var ref = this.child(ev.key);
+			} else {
+				var ref = this;
+			}
+			console.info('got this far')
+			this.handleEvent(ev, ref, callback);
 		});
 	}
 
@@ -62,9 +77,49 @@ class FirebaseBridge extends Firebase {
 		RNFirebase.set(this.toString(), value, onComplete);
 	}
 
+	ref() {
+		return this;
+	}
+
 
 	// Auth methods need a plan, and an implementation
 	auth() {
+		this.notImplemented()
+	}
+
+	parent() {
+		this.notImplemented()
+	}
+
+	root() {
+		this.notImplemented()
+	}
+
+	name() {
+		this.notImplemented()
+	}
+
+	update() {
+		this.notImplemented()
+	}
+
+	remove() {
+		this.notImplemented()
+	}
+
+	push() {
+		this.notImplemented()
+	}
+
+	setWithPriority() {
+		this.notImplemented()
+	}
+
+	setPriority() {
+		this.notImplemented()
+	}
+
+	transaction() {
 		this.notImplemented()
 	}
 }

@@ -8,7 +8,6 @@
 
 #import "RCTBridgeModule.h"
 #import "RCTLog.h"
-#import "Firebase.h"
 
 @interface RCT_EXTERN_MODULE(RNFirebase, NSObject)
 

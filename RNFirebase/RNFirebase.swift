@@ -7,7 +7,7 @@
 //
 
 import Foundation
-//import Firebase
+import Firebase
 
 /**
 
@@ -72,7 +72,11 @@ class RNFirebase: NSObject {
     ref.observeEventType(eventType, withBlock: { snap in
       let eventName = String(format: "RNFirebase-%@-%@", path, event);
       let val:AnyObject = snap.value;
-      self.bridge.eventDispatcher.sendAppEventWithName(eventName, body: val);
+      let key = snap.key;
+      self.bridge.eventDispatcher.sendAppEventWithName(eventName, body: [
+        "data": val,
+        "key": key
+      ]);
     })
   }
   
@@ -88,7 +92,6 @@ class RNFirebase: NSObject {
 //    ref.setValue(value, withCompletionBlock: { (err, ref) -> Void in
 //      callback(err)
 //    })
-    
     ref.setValue(value, withCompletionBlock: { (err, ref) -> Void in
       println("done")
       callback(err)

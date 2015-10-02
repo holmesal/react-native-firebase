@@ -2,8 +2,9 @@
 
 class FirebaseDataSnapshot {
 
-	constructor(data) {
+	constructor(data, ref) {
 		this.data = data;
+		this.ref = ref;
 	}
 
 	notImplemented() {
@@ -12,6 +13,9 @@ class FirebaseDataSnapshot {
 
 	val() {
 		return this.data;
+	}
+	key() {
+		return this.ref.key();
 	}
 
 	// TODO - implement these methods
@@ -28,9 +32,6 @@ class FirebaseDataSnapshot {
 		this.notImplemented()
 	}
 	hasChildren() {
-		this.notImplemented()
-	}
-	key() {
 		this.notImplemented()
 	}
 	name() {

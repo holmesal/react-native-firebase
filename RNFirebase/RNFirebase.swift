@@ -71,8 +71,14 @@ class RNFirebase: NSObject {
     // Listen to this event at this ref
     ref.observeEventType(eventType, withBlock: { snap in
       let eventName = String(format: "RNFirebase-%@-%@", path, event);
-      let val:AnyObject = snap.value;
-      let key = snap.key;
+      let val:AnyObject! = snap.value;
+      var key:AnyObject! = snap.key;
+//      var key:AnyObject! = "hey";
+//      println(key);
+//      println(val);
+      if (key == nil) {
+        key = "";
+      }
       self.bridge.eventDispatcher.sendAppEventWithName(eventName, body: [
         "data": val,
         "key": key

@@ -54,7 +54,10 @@ class FirebaseBridge extends Firebase {
 		// Listen for events emitted on this ref
 		NativeAppEventEmitter.addListener(this.getEventKey(eventType), (ev) => {
 			// If this data has a different key, then we're dealing with a child
-			if (ev.key !== this.key) {
+			if (ev.key === "") {
+				ev.key = null;
+			}
+			if (ev.key !== this.key()) {
 				var ref = this.child(ev.key);
 			} else {
 				var ref = this;
@@ -81,6 +84,9 @@ class FirebaseBridge extends Firebase {
 		return this;
 	}
 
+	authWithFacebook() {
+
+	}
 
 	// Auth methods need a plan, and an implementation
 	auth() {

@@ -14,8 +14,8 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "E213456C1BBD0B1B005436EB"
-               BuildableName = "libRNFirebase.a"
+               BlueprintIdentifier = "E26E29F31BBE54B800BF9CD9"
+               BuildableName = "RNFirebase.framework"
                BlueprintName = "RNFirebase"
                ReferencedContainer = "container:RNFirebase.xcodeproj">
             </BuildableReference>
@@ -28,7 +28,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "E21345771BBD0B1B005436EB"
+               BlueprintIdentifier = "E26E29FE1BBE54B800BF9CD9"
                BuildableName = "RNFirebaseTests.xctest"
                BlueprintName = "RNFirebaseTests"
                ReferencedContainer = "container:RNFirebase.xcodeproj">
@@ -46,7 +46,7 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "E21345771BBD0B1B005436EB"
+               BlueprintIdentifier = "E26E29FE1BBE54B800BF9CD9"
                BuildableName = "RNFirebaseTests.xctest"
                BlueprintName = "RNFirebaseTests"
                ReferencedContainer = "container:RNFirebase.xcodeproj">
@@ -56,8 +56,8 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "E213456C1BBD0B1B005436EB"
-            BuildableName = "libRNFirebase.a"
+            BlueprintIdentifier = "E26E29F31BBE54B800BF9CD9"
+            BuildableName = "RNFirebase.framework"
             BlueprintName = "RNFirebase"
             ReferencedContainer = "container:RNFirebase.xcodeproj">
          </BuildableReference>
@@ -75,8 +75,8 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "E213456C1BBD0B1B005436EB"
-            BuildableName = "libRNFirebase.a"
+            BlueprintIdentifier = "E26E29F31BBE54B800BF9CD9"
+            BuildableName = "RNFirebase.framework"
             BlueprintName = "RNFirebase"
             ReferencedContainer = "container:RNFirebase.xcodeproj">
          </BuildableReference>
@@ -93,8 +93,8 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "E213456C1BBD0B1B005436EB"
-            BuildableName = "libRNFirebase.a"
+            BlueprintIdentifier = "E26E29F31BBE54B800BF9CD9"
+            BuildableName = "RNFirebase.framework"
             BlueprintName = "RNFirebase"
             ReferencedContainer = "container:RNFirebase.xcodeproj">
          </BuildableReference>

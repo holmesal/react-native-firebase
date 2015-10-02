@@ -36,3 +36,4 @@ None to speak of. I made an xcode project though!
 
 ## Good first tasks
 (link to issues here)
+* Add unit tests to ensure parity with the official react JS lib

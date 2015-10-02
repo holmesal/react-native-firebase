@@ -7,17 +7,17 @@
 		<key>RNFirebase.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>0</integer>
+			<integer>14</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>E213456C1BBD0B1B005436EB</key>
+		<key>E26E29F31BBE54B800BF9CD9</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>E21345771BBD0B1B005436EB</key>
+		<key>E26E29FE1BBE54B800BF9CD9</key>
 		<dict>
 			<key>primary</key>
 			<true/>

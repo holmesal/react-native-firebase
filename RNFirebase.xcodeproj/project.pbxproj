@@ -7,151 +7,115 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		E21345711BBD0B1B005436EB /* RNFirebase.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = E21345701BBD0B1B005436EB /* RNFirebase.h */; };
-		E21345731BBD0B1B005436EB /* RNFirebase.m in Sources */ = {isa = PBXBuildFile; fileRef = E21345721BBD0B1B005436EB /* RNFirebase.m */; };
-		E21345791BBD0B1B005436EB /* libRNFirebase.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E213456D1BBD0B1B005436EB /* libRNFirebase.a */; };
-		E21345891BBD0E13005436EB /* RNFirebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21345881BBD0E13005436EB /* RNFirebase.swift */; };
-		E26E29831BBD146700BF9CD9 /* Firebase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E26E29821BBD146700BF9CD9 /* Firebase.framework */; };
-		E26E29851BBD150300BF9CD9 /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E26E29841BBD150300BF9CD9 /* libicucore.dylib */; };
-		E26E29871BBD150D00BF9CD9 /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E26E29861BBD150D00BF9CD9 /* libc++.dylib */; };
-		E26E29891BBD151D00BF9CD9 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E26E29881BBD151D00BF9CD9 /* CFNetwork.framework */; };
-		E26E298B1BBD152500BF9CD9 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E26E298A1BBD152500BF9CD9 /* Security.framework */; };
-		E26E298D1BBD152E00BF9CD9 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E26E298C1BBD152E00BF9CD9 /* SystemConfiguration.framework */; };
+		E26E29FA1BBE54B800BF9CD9 /* RNFirebase.h in Headers */ = {isa = PBXBuildFile; fileRef = E26E29F91BBE54B800BF9CD9 /* RNFirebase.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E26E2A131BBE54F600BF9CD9 /* RNFirebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = E26E2A101BBE54F600BF9CD9 /* RNFirebase.swift */; };
+		E26E2A141BBE54F600BF9CD9 /* RNFirebase.m in Sources */ = {isa = PBXBuildFile; fileRef = E26E2A111BBE54F600BF9CD9 /* RNFirebase.m */; };
+		E26E2A151BBE54F600BF9CD9 /* RNFirebase-Bridging-Header.h in Headers */ = {isa = PBXBuildFile; fileRef = E26E2A121BBE54F600BF9CD9 /* RNFirebase-Bridging-Header.h */; };
+		E26E2A601BBE592700BF9CD9 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E26E2A5F1BBE592700BF9CD9 /* libReact.a */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		E213457A1BBD0B1B005436EB /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = E21345651BBD0B1B005436EB /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = E213456C1BBD0B1B005436EB;
-			remoteInfo = RNFirebase;
-		};
-/* End PBXContainerItemProxy section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		E213456B1BBD0B1B005436EB /* CopyFiles */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "include/$(PRODUCT_NAME)";
-			dstSubfolderSpec = 16;
-			files = (
-				E21345711BBD0B1B005436EB /* RNFirebase.h in CopyFiles */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
-
 /* Begin PBXFileReference section */
-		E213456D1BBD0B1B005436EB /* libRNFirebase.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libRNFirebase.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		E21345701BBD0B1B005436EB /* RNFirebase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RNFirebase.h; sourceTree = "<group>"; };
-		E21345721BBD0B1B005436EB /* RNFirebase.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RNFirebase.m; sourceTree = "<group>"; };
-		E21345781BBD0B1B005436EB /* RNFirebaseTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RNFirebaseTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		E213457E1BBD0B1B005436EB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E21345871BBD0E13005436EB /* RNFirebase-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RNFirebase-Bridging-Header.h"; sourceTree = "<group>"; };
-		E21345881BBD0E13005436EB /* RNFirebase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RNFirebase.swift; sourceTree = "<group>"; };
-		E26E29821BBD146700BF9CD9 /* Firebase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Firebase.framework; sourceTree = "<group>"; };
-		E26E29841BBD150300BF9CD9 /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
-		E26E29861BBD150D00BF9CD9 /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
-		E26E29881BBD151D00BF9CD9 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
-		E26E298A1BBD152500BF9CD9 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
-		E26E298C1BBD152E00BF9CD9 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		E26E29F41BBE54B800BF9CD9 /* RNFirebase.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RNFirebase.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E26E29F81BBE54B800BF9CD9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E26E29F91BBE54B800BF9CD9 /* RNFirebase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RNFirebase.h; sourceTree = "<group>"; };
+		E26E2A051BBE54B800BF9CD9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E26E2A061BBE54B800BF9CD9 /* RNFirebaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RNFirebaseTests.swift; sourceTree = "<group>"; };
+		E26E2A101BBE54F600BF9CD9 /* RNFirebase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RNFirebase.swift; sourceTree = "<group>"; };
+		E26E2A111BBE54F600BF9CD9 /* RNFirebase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNFirebase.m; sourceTree = "<group>"; };
+		E26E2A121BBE54F600BF9CD9 /* RNFirebase-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RNFirebase-Bridging-Header.h"; sourceTree = "<group>"; };
+		E26E2A5F1BBE592700BF9CD9 /* libReact.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libReact.a; path = "../../../../Library/Developer/Xcode/DerivedData/podcastfooMobile-boqeypfpxrvhkkewzjtydjhihgdb/Build/Products/Debug-iphoneos/libReact.a"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		E213456A1BBD0B1B005436EB /* Frameworks */ = {
+		E26E29F01BBE54B800BF9CD9 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E26E298D1BBD152E00BF9CD9 /* SystemConfiguration.framework in Frameworks */,
-				E26E298B1BBD152500BF9CD9 /* Security.framework in Frameworks */,
-				E26E29891BBD151D00BF9CD9 /* CFNetwork.framework in Frameworks */,
-				E26E29871BBD150D00BF9CD9 /* libc++.dylib in Frameworks */,
-				E26E29851BBD150300BF9CD9 /* libicucore.dylib in Frameworks */,
-				E26E29831BBD146700BF9CD9 /* Firebase.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		E21345751BBD0B1B005436EB /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				E21345791BBD0B1B005436EB /* libRNFirebase.a in Frameworks */,
+				E26E2A601BBE592700BF9CD9 /* libReact.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		E21345641BBD0B1B005436EB = {
+		E26E29EA1BBE54B800BF9CD9 = {
 			isa = PBXGroup;
 			children = (
-				E26E29981BBD15CA00BF9CD9 /* Deps */,
-				E213456F1BBD0B1B005436EB /* RNFirebase */,
-				E213457C1BBD0B1B005436EB /* RNFirebaseTests */,
-				E213456E1BBD0B1B005436EB /* Products */,
+				E26E2A5F1BBE592700BF9CD9 /* libReact.a */,
+				E26E29F61BBE54B800BF9CD9 /* RNFirebase */,
+				E26E2A031BBE54B800BF9CD9 /* RNFirebaseTests */,
+				E26E29F51BBE54B800BF9CD9 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		E213456E1BBD0B1B005436EB /* Products */ = {
+		E26E29F51BBE54B800BF9CD9 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				E213456D1BBD0B1B005436EB /* libRNFirebase.a */,
-				E21345781BBD0B1B005436EB /* RNFirebaseTests.xctest */,
+				E26E29F41BBE54B800BF9CD9 /* RNFirebase.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		E213456F1BBD0B1B005436EB /* RNFirebase */ = {
+		E26E29F61BBE54B800BF9CD9 /* RNFirebase */ = {
 			isa = PBXGroup;
 			children = (
-				E21345701BBD0B1B005436EB /* RNFirebase.h */,
-				E21345721BBD0B1B005436EB /* RNFirebase.m */,
-				E21345881BBD0E13005436EB /* RNFirebase.swift */,
-				E21345871BBD0E13005436EB /* RNFirebase-Bridging-Header.h */,
+				E26E2A101BBE54F600BF9CD9 /* RNFirebase.swift */,
+				E26E2A111BBE54F600BF9CD9 /* RNFirebase.m */,
+				E26E2A121BBE54F600BF9CD9 /* RNFirebase-Bridging-Header.h */,
+				E26E29F91BBE54B800BF9CD9 /* RNFirebase.h */,
+				E26E29F71BBE54B800BF9CD9 /* Supporting Files */,
 			);
 			path = RNFirebase;
 			sourceTree = "<group>";
 		};
-		E213457C1BBD0B1B005436EB /* RNFirebaseTests */ = {
+		E26E29F71BBE54B800BF9CD9 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				E213457D1BBD0B1B005436EB /* Supporting Files */,
-			);
-			path = RNFirebaseTests;
-			sourceTree = "<group>";
-		};
-		E213457D1BBD0B1B005436EB /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				E213457E1BBD0B1B005436EB /* Info.plist */,
+				E26E29F81BBE54B800BF9CD9 /* Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		E26E29981BBD15CA00BF9CD9 /* Deps */ = {
+		E26E2A031BBE54B800BF9CD9 /* RNFirebaseTests */ = {
 			isa = PBXGroup;
 			children = (
-				E26E298C1BBD152E00BF9CD9 /* SystemConfiguration.framework */,
-				E26E298A1BBD152500BF9CD9 /* Security.framework */,
-				E26E29881BBD151D00BF9CD9 /* CFNetwork.framework */,
-				E26E29861BBD150D00BF9CD9 /* libc++.dylib */,
-				E26E29841BBD150300BF9CD9 /* libicucore.dylib */,
-				E26E29821BBD146700BF9CD9 /* Firebase.framework */,
+				E26E2A061BBE54B800BF9CD9 /* RNFirebaseTests.swift */,
+				E26E2A041BBE54B800BF9CD9 /* Supporting Files */,
 			);
-			name = Deps;
+			path = RNFirebaseTests;
+			sourceTree = "<group>";
+		};
+		E26E2A041BBE54B800BF9CD9 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				E26E2A051BBE54B800BF9CD9 /* Info.plist */,
+			);
+			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
+/* Begin PBXHeadersBuildPhase section */
+		E26E29F11BBE54B800BF9CD9 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E26E2A151BBE54F600BF9CD9 /* RNFirebase-Bridging-Header.h in Headers */,
+				E26E29FA1BBE54B800BF9CD9 /* RNFirebase.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
 /* Begin PBXNativeTarget section */
-		E213456C1BBD0B1B005436EB /* RNFirebase */ = {
+		E26E29F31BBE54B800BF9CD9 /* RNFirebase */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E21345811BBD0B1B005436EB /* Build configuration list for PBXNativeTarget "RNFirebase" */;
+			buildConfigurationList = E26E2A0A1BBE54B800BF9CD9 /* Build configuration list for PBXNativeTarget "RNFirebase" */;
 			buildPhases = (
-				E21345691BBD0B1B005436EB /* Sources */,
-				E213456A1BBD0B1B005436EB /* Frameworks */,
-				E213456B1BBD0B1B005436EB /* CopyFiles */,
+				E26E29EF1BBE54B800BF9CD9 /* Sources */,
+				E26E29F01BBE54B800BF9CD9 /* Frameworks */,
+				E26E29F11BBE54B800BF9CD9 /* Headers */,
+				E26E29F21BBE54B800BF9CD9 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -159,64 +123,42 @@
 			);
 			name = RNFirebase;
 			productName = RNFirebase;
-			productReference = E213456D1BBD0B1B005436EB /* libRNFirebase.a */;
-			productType = "com.apple.product-type.library.static";
-		};
-		E21345771BBD0B1B005436EB /* RNFirebaseTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = E21345841BBD0B1B005436EB /* Build configuration list for PBXNativeTarget "RNFirebaseTests" */;
-			buildPhases = (
-				E21345741BBD0B1B005436EB /* Sources */,
-				E21345751BBD0B1B005436EB /* Frameworks */,
-				E21345761BBD0B1B005436EB /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				E213457B1BBD0B1B005436EB /* PBXTargetDependency */,
-			);
-			name = RNFirebaseTests;
-			productName = RNFirebaseTests;
-			productReference = E21345781BBD0B1B005436EB /* RNFirebaseTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
+			productReference = E26E29F41BBE54B800BF9CD9 /* RNFirebase.framework */;
+			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		E21345651BBD0B1B005436EB /* Project object */ = {
+		E26E29EB1BBE54B800BF9CD9 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0640;
 				ORGANIZATIONNAME = "Alonso Holmes";
 				TargetAttributes = {
-					E213456C1BBD0B1B005436EB = {
-						CreatedOnToolsVersion = 6.4;
-					};
-					E21345771BBD0B1B005436EB = {
+					E26E29F31BBE54B800BF9CD9 = {
 						CreatedOnToolsVersion = 6.4;
 					};
 				};
 			};
-			buildConfigurationList = E21345681BBD0B1B005436EB /* Build configuration list for PBXProject "RNFirebase" */;
+			buildConfigurationList = E26E29EE1BBE54B800BF9CD9 /* Build configuration list for PBXProject "RNFirebase" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 			);
-			mainGroup = E21345641BBD0B1B005436EB;
-			productRefGroup = E213456E1BBD0B1B005436EB /* Products */;
+			mainGroup = E26E29EA1BBE54B800BF9CD9;
+			productRefGroup = E26E29F51BBE54B800BF9CD9 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				E213456C1BBD0B1B005436EB /* RNFirebase */,
-				E21345771BBD0B1B005436EB /* RNFirebaseTests */,
+				E26E29F31BBE54B800BF9CD9 /* RNFirebase */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		E21345761BBD0B1B005436EB /* Resources */ = {
+		E26E29F21BBE54B800BF9CD9 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -226,34 +168,19 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		E21345691BBD0B1B005436EB /* Sources */ = {
+		E26E29EF1BBE54B800BF9CD9 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E21345891BBD0E13005436EB /* RNFirebase.swift in Sources */,
-				E21345731BBD0B1B005436EB /* RNFirebase.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		E21345741BBD0B1B005436EB /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
+				E26E2A141BBE54F600BF9CD9 /* RNFirebase.m in Sources */,
+				E26E2A131BBE54F600BF9CD9 /* RNFirebase.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
-/* Begin PBXTargetDependency section */
-		E213457B1BBD0B1B005436EB /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = E213456C1BBD0B1B005436EB /* RNFirebase */;
-			targetProxy = E213457A1BBD0B1B005436EB /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
-
 /* Begin XCBuildConfiguration section */
-		E213457F1BBD0B1B005436EB /* Debug */ = {
+		E26E2A081BBE54B800BF9CD9 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -270,7 +197,10 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -288,14 +218,25 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"$(SRCROOT)/../react-native/React/**",
+					"$(SRCROOT)/../../React/**",
+					"$(SRCROOT)/node_modules/react-native/React/**",
+				);
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
 			};
 			name = Debug;
 		};
-		E21345801BBD0B1B005436EB /* Release */ = {
+		E26E2A091BBE54B800BF9CD9 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -312,7 +253,10 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -324,109 +268,115 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"$(SRCROOT)/../react-native/React/**",
+					"$(SRCROOT)/../../React/**",
+					"$(SRCROOT)/node_modules/react-native/React/**",
+				);
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
 		};
-		E21345821BBD0B1B005436EB /* Debug */ = {
+		E26E2A0B1BBE54B800BF9CD9 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				DEAD_CODE_STRIPPING = NO;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
+					"/Users/alonso/dev/podcastfooMobile/node_modules/react-native-firebase",
 					"$(PROJECT_DIR)",
 				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"$(SRCROOT)/../react-native/React/**",
+					"$(SRCROOT)/../../React/**",
+					"$(SRCROOT)/node_modules/react-native/React/**",
+				);
+				INFOPLIST_FILE = RNFirebase/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				OTHER_LDFLAGS = "-ObjC";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/podcastfooMobile-boqeypfpxrvhkkewzjtydjhihgdb/Build/Products/Debug-iphoneos",
+					"/Users/alonso/dev/podcastfooMobile/Pods/../build/Debug-iphoneos",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_OBJC_BRIDGING_HEADER = "RNFirebase/RNFirebase-Bridging-Header.h";
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
-		E21345831BBD0B1B005436EB /* Release */ = {
+		E26E2A0C1BBE54B800BF9CD9 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				DEAD_CODE_STRIPPING = NO;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
+					"/Users/alonso/dev/podcastfooMobile/node_modules/react-native-firebase",
 					"$(PROJECT_DIR)",
 				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"$(SRCROOT)/../react-native/React/**",
+					"$(SRCROOT)/../../React/**",
+					"$(SRCROOT)/node_modules/react-native/React/**",
+				);
+				INFOPLIST_FILE = RNFirebase/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				OTHER_LDFLAGS = "-ObjC";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/podcastfooMobile-boqeypfpxrvhkkewzjtydjhihgdb/Build/Products/Debug-iphoneos",
+					"/Users/alonso/dev/podcastfooMobile/Pods/../build/Debug-iphoneos",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_OBJC_BRIDGING_HEADER = "RNFirebase/RNFirebase-Bridging-Header.h";
-			};
-			name = Release;
-		};
-		E21345851BBD0B1B005436EB /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = RNFirebaseTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Debug;
-		};
-		E21345861BBD0B1B005436EB /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = RNFirebaseTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		E21345681BBD0B1B005436EB /* Build configuration list for PBXProject "RNFirebase" */ = {
+		E26E29EE1BBE54B800BF9CD9 /* Build configuration list for PBXProject "RNFirebase" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				E213457F1BBD0B1B005436EB /* Debug */,
-				E21345801BBD0B1B005436EB /* Release */,
+				E26E2A081BBE54B800BF9CD9 /* Debug */,
+				E26E2A091BBE54B800BF9CD9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		E21345811BBD0B1B005436EB /* Build configuration list for PBXNativeTarget "RNFirebase" */ = {
+		E26E2A0A1BBE54B800BF9CD9 /* Build configuration list for PBXNativeTarget "RNFirebase" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				E21345821BBD0B1B005436EB /* Debug */,
-				E21345831BBD0B1B005436EB /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		E21345841BBD0B1B005436EB /* Build configuration list for PBXNativeTarget "RNFirebaseTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				E21345851BBD0B1B005436EB /* Debug */,
-				E21345861BBD0B1B005436EB /* Release */,
+				E26E2A0B1BBE54B800BF9CD9 /* Debug */,
+				E26E2A0C1BBE54B800BF9CD9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = E21345651BBD0B1B005436EB /* Project object */;
+	rootObject = E26E29EB1BBE54B800BF9CD9 /* Project object */;
 }

@@ -57,6 +57,11 @@ class FirebaseBridge extends Firebase {
 		NativeAppEventEmitter.removeAllListeners(this.getEventKey(eventType));
 	}
 
+	set(value, onComplete) {
+		console.info('setting');
+		RNFirebase.set(this.toString(), value, onComplete);
+	}
+
 
 	// Auth methods need a plan, and an implementation
 	auth() {

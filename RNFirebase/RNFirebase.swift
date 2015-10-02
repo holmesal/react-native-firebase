@@ -70,13 +70,9 @@ class RNFirebase: NSObject {
     let eventType = self.getEventType(event);
     // Listen to this event at this ref
     ref.observeEventType(eventType, withBlock: { snap in
-      println("got data!");
-      println(snap);
-      println(snap.value);
       let eventName = String(format: "RNFirebase-%@-%@", path, event);
-      println(eventName);
-      self.bridge.eventDispatcher.sendAppEventWithName(eventName, body: snap.value);
-        
+      let val:AnyObject = snap.value;
+      self.bridge.eventDispatcher.sendAppEventWithName(eventName, body: val);
     })
   }
   
@@ -85,6 +81,18 @@ class RNFirebase: NSObject {
   @objc func off(path: String) -> Void {
     let ref = self.getRef(path);
     ref.removeAllObservers();
+  }
+  
+  @objc func set(path: String, value: AnyObject, callback: RCTResponseErrorBlock) -> Void {
+    let ref = self.getRef(path);
+//    ref.setValue(value, withCompletionBlock: { (err, ref) -> Void in
+//      callback(err)
+//    })
+    
+    ref.setValue(value, withCompletionBlock: { (err, ref) -> Void in
+      println("done")
+      callback(err)
+    })
   }
   
 }

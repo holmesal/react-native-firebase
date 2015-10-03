@@ -82,6 +82,14 @@ class FirebaseBridge extends Firebase {
 		return this;
 	}
 
+	getAuth(callback) {
+		RNFirebase.getAuth(this.toString(), callback);
+	}
+
+	unauth() {
+		RNFirebase.unauth(this.toString());
+	}
+
 	authWithFacebook(callback) {
 		RNFirebase.authWithFacebook(this.toString(), callback);
 	}

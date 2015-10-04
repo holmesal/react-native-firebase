@@ -86,6 +86,13 @@ class FirebaseBridge extends Firebase {
 		RNFirebase.getAuth(this.toString(), callback);
 	}
 
+	onAuth(callback) {
+		RNFirebase.getAuth(this.toString(), callback);
+		NativeAppEventEmitter.addListener(this.getEventKey('auth'), (ev) => {
+			callback(ev.err, ev.authData);
+		});
+	}
+
 	unauth() {
 		RNFirebase.unauth(this.toString());
 	}
@@ -96,10 +103,6 @@ class FirebaseBridge extends Firebase {
 
 
 	// Auth methods need a plan, and an implementation
-	onAuth(callback) {
-		this.notImplemented()
-		// NativeAppEventEmitter.addListener(this.getEventKey('auth'), callback);
-	}
 	auth() {
 		this.notImplemented()
 	}

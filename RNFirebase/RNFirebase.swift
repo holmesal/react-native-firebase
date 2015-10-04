@@ -96,9 +96,6 @@ class RNFirebase: NSObject {
   
   @objc func set(path: String, value: AnyObject, callback: RCTResponseErrorBlock) -> Void {
     let ref = self.getRef(path);
-//    ref.setValue(value, withCompletionBlock: { (err, ref) -> Void in
-//      callback(err)
-//    })
     ref.setValue(value, withCompletionBlock: { (err, ref) -> Void in
       println("done")
       callback(err)
@@ -107,18 +104,13 @@ class RNFirebase: NSObject {
   
   @objc func getAuth(path: String, callback: RCTResponseSenderBlock) -> Void {
     let ref = self.getRef(path);
-    let authData:FAuthData? = ref.authData;
-    
-    if(authData == nil) {
-      callback([NSNull(), NSNull()]);
-    } else {
-      self.buildAndReturnAuthData(authData!, callback: callback);
-    }
+    self.emitAuthData(path, authData: ref.authData, callback: callback);
   }
   
   @objc func unauth(path: String) -> Void {
     let ref = self.getRef(path);
     ref.unauth();
+    self.emitAuthData(path, authData: nil, callback: nil);
   }
   
   @objc func authWithFacebook(path: String, callback: RCTResponseSenderBlock) -> Void {
@@ -128,27 +120,28 @@ class RNFirebase: NSObject {
     let existingAuthData:FAuthData? = ref.authData;
     
     if (existingAuthData != nil) {
-      self.buildAndReturnAuthData(existingAuthData!, callback: callback);
+      self.emitAuthData(path, authData: existingAuthData, callback: callback);
     } else {
       facebookLogin.logInWithReadPermissions(["email"], fromViewController:nil, handler: { (facebookResult, facebookError) -> Void in
         if facebookError != nil {
           println("Facebook login failed. Error \(facebookError)");
-          let error:NSDictionary = RCTMakeAndLogError("facebook login failed", facebookError, nil);
-          callback([error, NSNull()]);
+          let error:NSDictionary = RCTMakeAndLogError("facebookLoginFailed", facebookError, nil);
+          self.emitAuthError(path, error: error, callback: callback);
         } else if facebookResult.isCancelled {
           println("Facebook login was cancelled.");
           let error:NSDictionary = RCTMakeError("loginCancelled", nil, nil);
-          callback([error, NSNull()]);
+          self.emitAuthError(path, error: error, callback: callback);
         } else {
-          println("login succeeded!");
+          println("facebook login succeeded!");
           let accessToken = FBSDKAccessToken.currentAccessToken().tokenString;
           ref.authWithOAuthProvider("facebook", token: accessToken, withCompletionBlock: { (err, authData) -> Void in
-            println("auth done");
             if err != nil {
+              println("firebase auth error")
               let error:NSDictionary = RCTMakeAndLogError("firebase auth error", err, nil);
-              callback([error, NSNull()]);
+              self.emitAuthError(path, error: error, callback: callback);
             } else {
-              self.buildAndReturnAuthData(authData, callback: callback);
+              println("auth succeeded")
+              self.emitAuthData(path, authData: authData, callback: callback);
             }
           })
         }
@@ -156,15 +149,43 @@ class RNFirebase: NSObject {
     }
   }
   
-  func buildAndReturnAuthData(authData: FAuthData, callback: RCTResponseSenderBlock) -> Void {
-    let authDict:NSDictionary = [
-      "auth": authData.auth,
-      "provider": authData.provider,
-      "providerData": authData.providerData,
-      "token": authData.token,
-      "uid": authData.uid
-    ];
-    callback([NSNull(), authDict]);
+  func emitAuthError(path: String, error: NSDictionary, callback: RCTResponseSenderBlock?) -> Void {
+    // Call the callback with the error
+    if (callback != nil) {
+      callback!([NSNull(), error]);
+    }
+    // Send an auth event over the bridge
+    let eventName = String(format: "RNFirebase-%@-%@", path, "auth");
+    self.bridge.eventDispatcher.sendAppEventWithName(eventName, body: [
+      "err": error,
+      "authData": NSNull()
+    ]);
+  }
+  
+  func emitAuthData(path: String, authData: FAuthData?, callback: RCTResponseSenderBlock?) -> Void {
+    var safeAuthData:AnyObject;
+    if (authData == nil) {
+      safeAuthData = NSNull();
+    } else {
+      safeAuthData = [
+        "uid":authData!.uid,
+        "expires":authData!.expires,
+        "provider":authData!.provider,
+        "auth":authData!.auth,
+        "token":authData!.token,
+        "providerData":authData!.providerData
+      ];
+    }
+    if (callback != nil) {
+      callback!([NSNull(), safeAuthData]);
+    }
+    
+    // Send an auth event over the bridge
+    let eventName = String(format: "RNFirebase-%@-%@", path, "auth");
+    self.bridge.eventDispatcher.sendAppEventWithName(eventName, body: [
+      "err": NSNull(),
+      "authData": safeAuthData
+      ]);
   }
   
 }

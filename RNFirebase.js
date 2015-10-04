@@ -94,7 +94,12 @@ class FirebaseBridge extends Firebase {
 		RNFirebase.authWithFacebook(this.toString(), callback);
 	}
 
+
 	// Auth methods need a plan, and an implementation
+	onAuth(callback) {
+		this.notImplemented()
+		// NativeAppEventEmitter.addListener(this.getEventKey('auth'), callback);
+	}
 	auth() {
 		this.notImplemented()
 	}

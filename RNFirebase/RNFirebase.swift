@@ -107,9 +107,13 @@ class RNFirebase: NSObject {
   
   @objc func getAuth(path: String, callback: RCTResponseSenderBlock) -> Void {
     let ref = self.getRef(path);
-    let authData:FAuthData = ref.authData;
+    let authData:FAuthData? = ref.authData;
     
-    self.buildAndReturnAuthData(authData, callback: callback);
+    if(authData == nil) {
+      callback([NSNull(), NSNull()]);
+    } else {
+      self.buildAndReturnAuthData(authData!, callback: callback);
+    }
   }
   
   @objc func unauth(path: String) -> Void {
@@ -133,7 +137,7 @@ class RNFirebase: NSObject {
           callback([error, NSNull()]);
         } else if facebookResult.isCancelled {
           println("Facebook login was cancelled.");
-          let error:NSDictionary = RCTMakeAndLogError("facebook login was cancelled", nil, nil);
+          let error:NSDictionary = RCTMakeError("loginCancelled", nil, nil);
           callback([error, NSNull()]);
         } else {
           println("login succeeded!");

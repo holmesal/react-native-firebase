@@ -87,6 +87,12 @@ class RNFirebase: NSObject {
     })
   }
   
+  @objc func keepSynced(path: String, shouldSync: Bool) -> Void {
+    let ref = self.getRef(path);
+    println("syncing \(path)");
+    ref.keepSynced(shouldSync);
+  }
+  
   // This will remove a previously-added event listener
   // TODO - implement the ability to remove a specific listener
   @objc func off(path: String) -> Void {
@@ -101,6 +107,11 @@ class RNFirebase: NSObject {
       callback(err)
     })
   }
+  
+  
+  /**
+  * Authenticatoin
+  */
   
   @objc func getAuth(path: String, callback: RCTResponseSenderBlock) -> Void {
     let ref = self.getRef(path);
@@ -152,7 +163,7 @@ class RNFirebase: NSObject {
   func emitAuthError(path: String, error: NSDictionary, callback: RCTResponseSenderBlock?) -> Void {
     // Call the callback with the error
     if (callback != nil) {
-      callback!([NSNull(), error]);
+      callback!([error, NSNull()]);
     }
     // Send an auth event over the bridge
     let eventName = String(format: "RNFirebase-%@-%@", path, "auth");

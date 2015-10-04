@@ -8,7 +8,7 @@ var {NativeAppEventEmitter} = React;
 class FirebaseBridge extends Firebase {
 
 	constructor(path) {
-		console.info('new instance created: ', path)
+		console.debug('new instance created: ', path)
 		// Create a firebase reference, to be returned
 		super(path);
 		this._ref = new Firebase(path);
@@ -34,7 +34,7 @@ class FirebaseBridge extends Firebase {
 
 	// Given some data passed over the bridge, create a data snapshot and call the registered callback
 	handleEvent(ev, ref, callback) {
-		console.info('got event', ev);
+		console.debug('got event', ev);
 		let snap = new FirebaseDataSnapshot(ev.data, ref);
 		callback(snap);
 	}
@@ -82,15 +82,31 @@ class FirebaseBridge extends Firebase {
 		return this;
 	}
 
+	keepSynced(shouldSync) {
+		RNFirebase.keepSynced(this.toString(), shouldSync);
+	}
+
+
+
+	// Authentication
+
 	getAuth(callback) {
 		RNFirebase.getAuth(this.toString(), callback);
 	}
 
 	onAuth(callback) {
-		RNFirebase.getAuth(this.toString(), callback);
 		NativeAppEventEmitter.addListener(this.getEventKey('auth'), (ev) => {
 			callback(ev.err, ev.authData);
 		});
+		// Force an auth check right away
+		RNFirebase.getAuth(this.toString(), ()=>{});
+	}
+
+	offAuth(callback, context) {
+		if (callback || context) {
+			console.warn('You seem to be calling .offAuth() with an eventType or a callback, which is currently unsupported. For this call, all listeners will be removed from the auth event.')
+		}
+		NativeAppEventEmitter.removeAllListeners(this.getEventKey('auth'));
 	}
 
 	unauth() {
@@ -102,7 +118,7 @@ class FirebaseBridge extends Firebase {
 	}
 
 
-	// Auth methods need a plan, and an implementation
+	// These methods need some love
 	auth() {
 		this.notImplemented()
 	}

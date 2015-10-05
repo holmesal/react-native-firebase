@@ -26,7 +26,7 @@ class RNFirebase: NSObject {
   var bridge: RCTBridge!
     
   override init() {
-    println("initialized!");
+    print("initialized!");
 //    var testRef = Firebase(url: "http://podcast.firebaseio.com/users");
 //    testRef.observeEventType(.Value, withBlock: {
 //        snapshot in
@@ -66,7 +66,7 @@ class RNFirebase: NSObject {
   // when data changes at this location, we'll emit events. why not use a callback?
   // callbacks are designed to be called once (see https://facebook.github.io/react-native/docs/native-modules-ios.html#callbacks)
   @objc func on(path: String, event: String) -> Void {
-    println(String(format: "Listening to path %@ and event %@", path, event));
+    print(String(format: "Listening to path %@ and event %@", path, event));
     let ref = self.getRef(path);
     let eventType = self.getEventType(event);
     // Listen to this event at this ref
@@ -89,7 +89,7 @@ class RNFirebase: NSObject {
   
   @objc func keepSynced(path: String, shouldSync: Bool) -> Void {
     let ref = self.getRef(path);
-    println("syncing \(path)");
+    print("syncing \(path)");
     ref.keepSynced(shouldSync);
   }
   
@@ -103,7 +103,7 @@ class RNFirebase: NSObject {
   @objc func set(path: String, value: AnyObject, callback: RCTResponseErrorBlock) -> Void {
     let ref = self.getRef(path);
     ref.setValue(value, withCompletionBlock: { (err, ref) -> Void in
-      println("done")
+      print("done")
       callback(err)
     })
   }
@@ -135,23 +135,23 @@ class RNFirebase: NSObject {
     } else {
       facebookLogin.logInWithReadPermissions(["email"], fromViewController:nil, handler: { (facebookResult, facebookError) -> Void in
         if facebookError != nil {
-          println("Facebook login failed. Error \(facebookError)");
+          print("Facebook login failed. Error \(facebookError)");
           let error:NSDictionary = RCTMakeAndLogError("facebookLoginFailed", facebookError, nil);
           self.emitAuthError(path, error: error, callback: callback);
         } else if facebookResult.isCancelled {
-          println("Facebook login was cancelled.");
+          print("Facebook login was cancelled.");
           let error:NSDictionary = RCTMakeError("loginCancelled", nil, nil);
           self.emitAuthError(path, error: error, callback: callback);
         } else {
-          println("facebook login succeeded!");
+          print("facebook login succeeded!");
           let accessToken = FBSDKAccessToken.currentAccessToken().tokenString;
           ref.authWithOAuthProvider("facebook", token: accessToken, withCompletionBlock: { (err, authData) -> Void in
             if err != nil {
-              println("firebase auth error")
+              print("firebase auth error")
               let error:NSDictionary = RCTMakeAndLogError("firebase auth error", err, nil);
               self.emitAuthError(path, error: error, callback: callback);
             } else {
-              println("auth succeeded")
+              print("auth succeeded")
               self.emitAuthData(path, authData: authData, callback: callback);
             }
           })

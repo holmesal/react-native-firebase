@@ -199,4 +199,63 @@ class RNFirebase: NSObject {
       ]);
   }
   
+  func applyQueryOperation(ref: Firebase, operation: NSDictionary) -> FQuery{
+    let opName = operation["name"];
+    switch opName as! NSString {
+      case "orderByChild":
+        return ref.queryOrderedByChild(operation["key"] as! String);
+      case "orderByKey":
+        return ref.queryOrderedByKey();
+      case "orderByValue":
+        return ref.queryOrderedByValue();
+      case "orderByPriority":
+        return ref.queryOrderedByPriority();
+      case "startAtValue":
+        return ref.queryStartingAtValue(operation["value"]);
+      case "startAtValueAndKey":
+        return ref.queryStartingAtValue(operation["value"], childKey: operation["key"] as! String);
+      case "endAtValue":
+        return ref.queryEndingAtValue(operation["value"]);
+      case "endAtValueAndKey":
+        return ref.queryEndingAtValue(operation["value"], childKey: operation["key"] as! String);
+      case "equalToValue":
+        return ref.queryEqualToValue(operation["value"]);
+      case "equalToValueAndKey":
+        return ref.queryEqualToValue(operation["value"], childKey: operation["key"] as! String);
+      case "limitToFirst":
+        return ref.queryLimitedToFirst(operation["limit"] as! UInt);
+      case "limitToLast":
+        return ref.queryLimitedToLast(operation["limit"] as! UInt);
+      case "limit":
+        return ref.queryLimitedToNumberOfChildren(operation["limit"] as! UInt);
+      default:
+        print("unrecognized query operation: \(opName)");
+        return ref
+    }
+  }
+  
+  @objc func onQuery(path: String, event: String, operations: Array<NSDictionary>, eventKey: String) -> Void {
+    print(operations);
+    let ref = self.getRef(path);
+    var query = FQuery();
+    // Apply query operations
+    for op in operations {
+//      let operation:Dictionary<String,Any> = op;
+      print(op)
+      query = self.applyQueryOperation(ref, operation: op);
+    }
+    // Add the event listener to the query
+    query.observeEventType(self.getEventType(event), withBlock: { snap in
+      let val:AnyObject! = snap.value;
+      var key:AnyObject! = snap.key;
+      if (key == nil) {
+        key = "";
+      }
+      self.bridge.eventDispatcher.sendAppEventWithName(eventKey, body: [
+        "data": val,
+        "key": key
+        ]);
+    })
+  }
+  
 }

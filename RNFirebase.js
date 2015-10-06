@@ -1,17 +1,30 @@
+require('console-shim');
 var Firebase = require('firebase');
 var React = require('react-native');
 var FirebaseDataSnapshot = require('./RNFirebaseDataSnapshot')
+var FirebaseQuery = require('./RNFirebaseQuery')
 var {RNFirebase} = React.NativeModules;
 
 var {NativeAppEventEmitter} = React;
 
-class FirebaseBridge extends Firebase {
+class FirebaseRef extends Firebase {
 
 	constructor(path) {
-		console.debug('new instance created: ', path)
+		// console.debug('new instance created: ', path)
 		// Create a firebase reference, to be returned
 		super(path);
 		this._ref = new Firebase(path);
+
+		// Calling query methods should create a new FirebaseQuery
+		// and invoke the query method on it
+		let queryMethods = ['orderByChild', 'orderByKey', 'orderByValue', 'orderByPriority', 'startAt', 'endAt', 'equalTo', 'limitToFirst', 'limitToLast', 'limit'];
+		queryMethods.map((method) => {
+			this[method] = function() {
+				let q = new FirebaseQuery(this);
+				q[method].apply(q, arguments);
+				return q;
+			}
+		});
 
 		return this;
 	}
@@ -20,7 +33,7 @@ class FirebaseBridge extends Firebase {
 		// console.info('child path: ', path);
 		let newRef = this._ref.child(path);
 		// console.info('new ref: ', newRef.toString());
-		return new FirebaseBridge(newRef.toString());
+		return new FirebaseRef(newRef.toString());
 	}
 
 	/**
@@ -34,7 +47,7 @@ class FirebaseBridge extends Firebase {
 
 	// Given some data passed over the bridge, create a data snapshot and call the registered callback
 	handleEvent(ev, ref, callback) {
-		console.debug('got event', ev);
+		// console.debug('got event', ev);
 		let snap = new FirebaseDataSnapshot(ev.data, ref);
 		callback(snap);
 	}
@@ -160,4 +173,4 @@ class FirebaseBridge extends Firebase {
 	}
 }
 
-module.exports = FirebaseBridge;
+module.exports = FirebaseRef;

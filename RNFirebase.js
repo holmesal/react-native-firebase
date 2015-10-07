@@ -4,7 +4,6 @@ var React = require('react-native');
 var FirebaseDataSnapshot = require('./RNFirebaseDataSnapshot')
 var FirebaseQuery = require('./RNFirebaseQuery')
 var {RNFirebase} = React.NativeModules;
-
 var {NativeAppEventEmitter} = React;
 
 class FirebaseRef extends Firebase {

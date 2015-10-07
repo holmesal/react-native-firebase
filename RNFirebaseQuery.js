@@ -1,4 +1,4 @@
-_ = require('lodash')
+var _ = require('lodash')
 var React = require('react-native');
 var FirebaseDataSnapshot = require('./RNFirebaseDataSnapshot')
 var {RNFirebase} = React.NativeModules;

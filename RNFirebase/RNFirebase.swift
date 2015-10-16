@@ -19,23 +19,26 @@ import FBSDKLoginKit
 */
 
 @objc(RNFirebase)
-class RNFirebase: NSObject {
+class RNFirebase: NSObject, RCTInvalidating {
   
   var refs: [String:Firebase]
   
   var bridge: RCTBridge!
     
   override init() {
-    print("initialized!");
-//    var testRef = Firebase(url: "http://podcast.firebaseio.com/users");
-//    testRef.observeEventType(.Value, withBlock: {
-//        snapshot in
-//        println("\(snapshot.key) -> \(snapshot.value)")
-//    })
-    
-//    RCTFormatLog(NSDate(), RCTLogLevel.Info, nil, nil, "test log from firebase component!");
-    
     self.refs = [:];
+    super.init();
+  }
+  
+//  deinit {
+//    print("deiniting: \(self)");
+//  }
+  
+  func invalidate() {
+    for(_, ref) in self.refs {
+      ref.removeAllObservers();
+    }
+    self.refs = [:]
   }
   
   // Return an existing ref, or create one if none exists
@@ -74,9 +77,6 @@ class RNFirebase: NSObject {
       let eventName = String(format: "RNFirebase-%@-%@", path, event);
       let val:AnyObject! = snap.value;
       var key:AnyObject! = snap.key;
-//      var key:AnyObject! = "hey";
-//      println(key);
-//      println(val);
       if (key == nil) {
         key = "";
       }

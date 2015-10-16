@@ -1,6 +1,6 @@
 # RNFirebase
 
-# HEAVILY A WIP, NOT READY FOR USE
+# wip - use cautiously
 
 ## Why?
 

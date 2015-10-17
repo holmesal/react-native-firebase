@@ -26,6 +26,9 @@ class RNFirebase: NSObject, RCTInvalidating {
   var bridge: RCTBridge!
     
   override init() {
+    if Firebase.defaultConfig().persistenceEnabled == false {
+      Firebase.defaultConfig().persistenceEnabled = true;
+    }
     self.refs = [:];
     super.init();
   }

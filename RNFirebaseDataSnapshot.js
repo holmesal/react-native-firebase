@@ -4,7 +4,7 @@ class FirebaseDataSnapshot {
 
 	constructor(data, ref) {
 		this.data = data;
-		this.ref = ref;
+		this._ref = ref;
 	}
 
 	notImplemented() {
@@ -15,7 +15,11 @@ class FirebaseDataSnapshot {
 		return this.data;
 	}
 	key() {
-		return this.ref.key();
+		return this.ref().key();
+	}
+
+	ref() {
+		return this._ref;
 	}
 
 	// TODO - implement these methods
@@ -38,9 +42,6 @@ class FirebaseDataSnapshot {
 		this.notImplemented()
 	}
 	numChildren() {
-		this.notImplemented()
-	}
-	ref() {
 		this.notImplemented()
 	}
 	getPriority() {

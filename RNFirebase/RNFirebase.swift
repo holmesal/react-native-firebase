@@ -103,11 +103,12 @@ class RNFirebase: NSObject, RCTInvalidating {
     ref.removeAllObservers();
   }
   
-  @objc func set(path: String, value: AnyObject, callback: RCTResponseErrorBlock) -> Void {
+  @objc func set(path: String, value: AnyObject, callback: RCTResponseErrorBlock?) -> Void {
     let ref = self.getRef(path);
     ref.setValue(value, withCompletionBlock: { (err, ref) -> Void in
-      print("done")
-      callback(err)
+      if let response = callback {
+        response(err);
+      }
     })
   }
   

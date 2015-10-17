@@ -53,7 +53,7 @@ class FirebaseRef extends Firebase {
 
 	// Mention that the method called is not implemented
 	notImplemented() {
-		console.error(`${arguments.callee.caller.name} is not implemented :-(`);
+		console.error(`[RNFirebase] ${arguments.callee.caller.name} is not implemented :-(`);
 	}
 
 	/**
@@ -80,7 +80,7 @@ class FirebaseRef extends Firebase {
 
 	off(eventType, callback, context) {
 		if (eventType || callback || context) {
-			console.warn('You seem to be calling .off() with an eventType or a callback, which is currently unsupported. For this call, all listeners will be removed from this ref.')
+			console.warn('[RNFirebase] You seem to be calling .off() with an eventType or a callback, which is currently unsupported. For this call, all listeners will be removed from this ref.')
 		}
 		RNFirebase.off(this.toString());
 		NativeAppEventEmitter.removeAllListeners(this.getEventKey(eventType));
@@ -88,6 +88,20 @@ class FirebaseRef extends Firebase {
 
 	set(value, onComplete) {
 		RNFirebase.set(this.toString(), value, onComplete);
+	}
+
+	push(value) {
+		// Create the child path using the js sdk
+		let childPath = this._ref.push().toString()
+		// Create a new instance of yourself with this path
+		let childRef = new FirebaseRef(childPath)
+		// If data was passed, immediately set it
+		if (value) {
+			childRef.set(value);
+		}
+		return childRef
+		// this.notImplemented()
+		// RNFirebase.push(this.toString(), value, onComplete)
 	}
 
 	ref() {
@@ -116,7 +130,7 @@ class FirebaseRef extends Firebase {
 
 	offAuth(callback, context) {
 		if (callback || context) {
-			console.warn('You seem to be calling .offAuth() with an eventType or a callback, which is currently unsupported. For this call, all listeners will be removed from the auth event.')
+			console.warn('[RNFirebase] You seem to be calling .offAuth() with an eventType or a callback, which is currently unsupported. For this call, all listeners will be removed from the auth event.')
 		}
 		NativeAppEventEmitter.removeAllListeners(this.getEventKey('auth'));
 	}
@@ -152,10 +166,6 @@ class FirebaseRef extends Firebase {
 	}
 
 	remove() {
-		this.notImplemented()
-	}
-
-	push() {
 		this.notImplemented()
 	}
 

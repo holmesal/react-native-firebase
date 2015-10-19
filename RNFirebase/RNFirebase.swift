@@ -112,6 +112,15 @@ class RNFirebase: NSObject, RCTInvalidating {
     })
   }
   
+  @objc func update(path: String, value: AnyObject, callback: RCTResponseErrorBlock?) -> Void {
+    let ref = self.getRef(path);
+    ref.updateChildValues(value as! [NSObject : AnyObject]) { (err, ref) -> Void in
+      if let response = callback {
+        response(err);
+      }
+    }
+  }
+  
   
   /**
   * Authenticatoin

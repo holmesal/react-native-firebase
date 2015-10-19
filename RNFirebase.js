@@ -90,6 +90,10 @@ class FirebaseRef extends Firebase {
 		RNFirebase.set(this.toString(), value, onComplete);
 	}
 
+	update(value, onComplete) {
+		RNFirebase.update(this.toString(), value, onComplete);
+	}
+
 	push(value) {
 		// Create the child path using the js sdk
 		let childPath = this._ref.push().toString()
@@ -158,10 +162,6 @@ class FirebaseRef extends Firebase {
 	}
 
 	name() {
-		this.notImplemented()
-	}
-
-	update() {
 		this.notImplemented()
 	}
 

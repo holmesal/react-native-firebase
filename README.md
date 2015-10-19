@@ -30,10 +30,6 @@ When you call `new Firebase()` in javascript-land, a normal `Firebase` reference
 
 At that point, a mirror reference is created on the objective-c side (if it doesn't already exist) and 
 
-## Progress
-
-None to speak of. I made an xcode project though!
-
 ## Good first tasks
 (link to issues here)
 * Add unit tests to ensure parity with the official react JS lib

@@ -28,8 +28,6 @@ When you call `.off()`, the corresponding reference is destroyed using the nativ
 
 When you call `new Firebase()` in javascript-land, a normal `Firebase` reference is created. Nothing happens, though, until you call a method to set or fetch data from firebase: `.on(), .update(), .set(), .remove(), (add the rest)`.
 
-At that point, a mirror reference is created on the objective-c side (if it doesn't already exist) and 
-
 ## Good first tasks
 (link to issues here)
 * Add unit tests to ensure parity with the official react JS lib
